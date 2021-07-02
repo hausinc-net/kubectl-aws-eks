@@ -9,7 +9,7 @@ export KUBECONFIG=/tmp/config
 results="$(kubectl $*)"
 
 status=$?
-echo ::set-output name=results:$results
+echo ::set-output name=results::$results
 echo "$results"
 if [[ $status -eq 0 ]]; then exit 0; else exit 1; fi
 
