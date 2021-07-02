@@ -6,13 +6,11 @@ set -e
 echo "$KUBE_CONFIG_DATA" | base64 -d > /tmp/config
 export KUBECONFIG=/tmp/config
 
-#sh -c "kubectl $*"
-
-result="$(kubectl $*)"
+results="$(kubectl $*)"
 
 status=$?
-echo ::set-output name=result::$result
-echo "$result"
+echo ::set-output name=results:$results
+echo "$results"
 if [[ $status -eq 0 ]]; then exit 0; else exit 1; fi
 
 
