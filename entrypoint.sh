@@ -8,7 +8,7 @@ export KUBECONFIG=/tmp/config
 
 #sh -c "kubectl $*"
 
-result="$(sh -c kubectl $1)"
+result="$(kubectl $1)"
 
 status=$?
 echo ::set-output name=result::$result
